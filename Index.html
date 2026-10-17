@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Mi Plata, sistema bancario académico para administrar cuentas y operaciones financieras.">
+
+    <meta name="theme-color" content="#10254a">
+
+    <title>Mi Plata | Sistema Bancario</title>
+
+    <link rel="stylesheet" href="./css/styles.css">
+
+    <script type="module" src="./js/app.js"></script>
+</head>
+
+<body>
+
+    <!-- ENCABEZADO Y NAVEGACIÓN -->
+    <header class="encabezado">
+        <div class="contenedor encabezado-contenido">
+
+            <a href="#inicio" class="logo" data-navegar="inicio"
+               aria-label="Ir al inicio de Mi Plata">
+                <span class="logo-icono" aria-hidden="true">$</span>
+                <span>Mi Plata</span>
+            </a>
+
+            <nav class="navegacion" aria-label="Navegación principal">
+                <button type="button" data-navegar="inicio">
+                    Inicio
+                </button>
+
+                <button type="button" data-navegar="login">
+                    Iniciar sesión
+                </button>
+
+                <button type="button"
+                        class="boton boton-primario"
+                        data-navegar="registro">
+                    Abrir cuenta
+                </button>
+            </nav>
+
+        </div>
+    </header>
+
+    <main id="contenido-principal">
+
+        <!-- 1. PÁGINA DE INICIO -->
+        <section data-vista="inicio" class="vista vista-inicio">
+
+            <div class="contenedor hero">
+
+                <div class="hero-contenido">
+                    <span class="etiqueta">
+                        TU DINERO, BAJO TU CONTROL
+                    </span>
+
+                    <h1>
+                        Una forma más sencilla de administrar
+                        <span>tu plata.</span>
+                    </h1>
+
+                    <p>
+                        Con Mi Plata puedes consultar tus cuentas,
+                        organizar tus movimientos y gestionar tus
+                        productos bancarios desde un solo lugar.
+                    </p>
+
+                    <div class="hero-acciones">
+                        <button type="button"
+                                class="boton boton-primario"
+                                data-navegar="registro">
+                            Crear mi cuenta
+                        </button>
+
+                        <button type="button"
+                                class="boton boton-secundario"
+                                data-navegar="login">
+                            Ya tengo una cuenta
+                        </button>
+                    </div>
+
+                    <p class="texto-secundario">
+                        Plataforma de demostración académica.
+                    </p>
+                </div>
+
+                <div class="hero-tarjeta" aria-label="Ejemplo ilustrativo de una cuenta">
+                    <div class="tarjeta-superior">
+                        <span>MI PLATA</span>
+                        <span aria-hidden="true">● ●</span>
+                    </div>
+
+                    <p>Saldo de ejemplo</p>
+
+                    <h2>$ 2.500.000</h2>
+
+                    <div class="tarjeta-inferior">
+                        <span>CUENTA DIGITAL</span>
+                        <span>•••• 2048</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="contenedor beneficios">
+                <article class="beneficio">
+                    <span aria-hidden="true">01</span>
+                    <h2>Consulta tus cuentas</h2>
+                    <p>Visualiza los saldos de tus productos bancarios.</p>
+                </article>
+
+                <article class="beneficio">
+                    <span aria-hidden="true">02</span>
+                    <h2>Controla tus movimientos</h2>
+                    <p>Revisa consignaciones, retiros y transferencias.</p>
+                </article>
+
+                <article class="beneficio">
+                    <span aria-hidden="true">03</span>
+                    <h2>Administra tu dinero</h2>
+                    <p>Gestiona tus cuentas y compras de demostración.</p>
+                </article>
+            </div>
+
+        </section>
+
+
+        <!-- 2. INICIO DE SESIÓN -->
+        <section data-vista="login" class="vista" hidden>
+            <div class="contenedor contenedor-formulario">
+
+                <div class="encabezado-formulario">
+                    <span class="etiqueta">BIENVENIDO DE NUEVO</span>
+                    <h1>Iniciar sesión</h1>
+                    <p>Ingresa tus credenciales para continuar.</p>
+                </div>
+
+                <form id="form-login" class="formulario">
+
+                    <div class="campo">
+                        <label for="login-usuario">Nombre de usuario</label>
+                        <input
+                            type="text"
+                            id="login-usuario"
+                            name="usuario"
+                            autocomplete="username"
+                            required
+                            minlength="3"
+                            placeholder="Ingresa tu usuario">
+                    </div>
+
+                    <div class="campo">
+                        <label for="login-password">Contraseña</label>
+                        <input
+                            type="password"
+                            id="login-password"
+                            name="password"
+                            autocomplete="current-password"
+                            required
+                            placeholder="Ingresa tu contraseña">
+                    </div>
+
+                    <button type="submit"
+                            class="boton boton-primario boton-completo">
+                        Ingresar
+                    </button>
+
+                    <p class="texto-centro">
+                        ¿No tienes cuenta?
+                        <button type="button"
+                                class="boton-texto"
+                                data-navegar="registro">
+                            Regístrate aquí
+                        </button>
+                    </p>
+
+                </form>
+            </div>
+        </section>
+
+
+        <!-- 3. REGISTRO -->
+        <section data-vista="registro" class="vista" hidden>
+            <div class="contenedor contenedor-formulario">
+
+                <div class="encabezado-formulario">
+                    <span class="etiqueta">ÚNETE A MI PLATA</span>
+                    <h1>Crea tu cuenta</h1>
+                    <p>Completa tus datos para registrarte.</p>
+                </div>
+
+                <form id="form-registro" class="formulario">
+
+                    <div class="campo">
+                        <label for="registro-identificacion">
+                            Número de identificación o pasaporte
+                        </label>
+                        <input
+                            type="text"
+                            id="registro-identificacion"
+                            name="identificacion"
+                            autocomplete="off"
+                            required
+                            placeholder="Número de identificación">
+                    </div>
+
+                    <div class="campo">
+                        <label for="registro-nombre">Nombre completo</label>
+                        <input
+                            type="text"
+                            id="registro-nombre"
+                            name="nombre"
+                            autocomplete="name"
+                            required
+                            minlength="3"
+                            placeholder="Tu nombre completo">
+                    </div>
+
+                    <div class="campo">
+                        <label for="registro-celular">Número de celular</label>
+                        <input
+                            type="tel"
+                            id="registro-celular"
+                            name="celular"
+                            autocomplete="tel"
+                            required
+                            minlength="7"
+                            placeholder="Tu número de contacto">
+                    </div>
+
+                    <div class="campo">
+                        <label for="registro-usuario">Nombre de usuario</label>
+                        <input
+                            type="text"
+                            id="registro-usuario"
+                            name="usuario"
+                            autocomplete="username"
+                            required
+                            minlength="3"
+                            placeholder="Crea un usuario">
+                    </div>
+
+                    <div class="campo">
+                        <label for="registro-password">Contraseña</label>
+                        <input
+                            type="password"
+                            id="registro-password"
+                            name="password"
+                            autocomplete="new-password"
+                            required
+                            minlength="6"
+                            placeholder="Mínimo 6 caracteres">
+                    </div>
+
+                    <div class="campo">
+                        <label for="registro-confirmar">
+                            Confirmar contraseña
+                        </label>
+                        <input
+                            type="password"
+                            id="registro-confirmar"
+                            name="confirmarPassword"
+                            autocomplete="new-password"
+                            required
+                            minlength="6"
+                            placeholder="Repite tu contraseña">
+                    </div>
+
+                    <button type="submit"
+                            class="boton boton-primario boton-completo">
+                        Crear cuenta
+                    </button>
+
+                    <p class="texto-centro">
+                        ¿Ya estás registrado?
+                        <button type="button"
+                                class="boton-texto"
+                                data-navegar="login">
+                            Inicia sesión
+                        </button>
+                    </p>
+
+                </form>
+            </div>
+        </section>
+
+
+        <!-- 4. PANEL BANCARIO -->
+        <section data-vista="panel" class="vista" hidden>
+            <div class="contenedor">
+
+                <div class="titulo-seccion">
+                    <div>
+                        <span class="etiqueta">TU ESPACIO FINANCIERO</span>
+                        <h1>Mi panel bancario</h1>
+                        <p>Bienvenido, <span id="panel-nombre">cliente</span>.</p>
+                    </div>
+
+                    <button type="button"
+                            class="boton boton-secundario"
+                            data-accion="cerrar-sesion">
+                        Cerrar sesión
+                    </button>
+                </div>
+
+                <div class="resumen-grid">
+
+                    <article class="resumen-card resumen-principal">
+                        <p>Saldo total en cuentas</p>
+                        <h2 id="panel-saldo-total">$ 0</h2>
+                        <span>Saldo de tus cuentas de depósito</span>
+                    </article>
+
+                    <article class="resumen-card">
+                        <p>Cupo disponible de tarjeta</p>
+                        <h2 id="panel-cupo">$ 0</h2>
+                        <span>Disponible para compras</span>
+                    </article>
+
+                    <article class="resumen-card">
+                        <p>Deuda de tarjeta</p>
+                        <h2 id="panel-deuda">$ 0</h2>
+                        <span>Compras registradas</span>
+                    </article>
+
+                </div>
+
+                <h2 class="subtitulo-seccion">¿Qué deseas hacer?</h2>
+
+                <div class="acciones-grid">
+                    <button type="button" class="accion-card"
+                            data-navegar="cuentas">
+                        <span aria-hidden="true">▤</span>
+                        <strong>Mis cuentas</strong>
+                        <small>Consultar productos y saldos</small>
+                    </button>
+
+                    <button type="button" class="accion-card"
+                            data-navegar="consignar">
+                        <span aria-hidden="true">＋</span>
+                        <strong>Consignar</strong>
+                        <small>Ingresar dinero</small>
+                    </button>
+
+                    <button type="button" class="accion-card"
+                            data-navegar="retirar">
+                        <span aria-hidden="true">－</span>
+                        <strong>Retirar</strong>
+                        <small>Retirar dinero de una cuenta</small>
+                    </button>
+
+                    <button type="button" class="accion-card"
+                            data-navegar="transferir">
+                        <span aria-hidden="true">⇄</span>
+                        <strong>Transferir</strong>
+                        <small>Enviar dinero entre cuentas</small>
+                    </button>
+
+                    <button type="button" class="accion-card"
+                            data-navegar="movimientos">
+                        <span aria-hidden="true">◷</span>
+                        <strong>Movimientos</strong>
+                        <small>Consultar historial</small>
+                    </button>
+
+                    <button type="button" class="accion-card"
+                            data-navegar="tarjeta">
+                        <span aria-hidden="true">▰</span>
+                        <strong>Tarjeta de crédito</strong>
+                        <small>Compras, cuotas y cupo</small>
+                    </button>
+
+                    <button type="button" class="accion-card"
+                            data-navegar="perfil">
+                        <span aria-hidden="true">♙</span>
+                        <strong>Mi perfil</strong>
+                        <small>Actualizar mis datos</small>
+                    </button>
+
+                </div>
+
+                <div class="seccion-reciente">
+                    <div class="titulo-seccion">
+                        <h2>Movimientos recientes</h2>
+                        <button type="button"
+                                class="boton-texto"
+                                data-navegar="movimientos">
+                            Ver historial
+                        </button>
+                    </div>
+
+                    <div id="panel-movimientos-recientes">
+                        <p class="estado-vacio">
+                            Todavía no hay movimientos registrados.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 5. RESUMEN DE CUENTAS -->
+        <section data-vista="cuentas" class="vista" hidden>
+            <div class="contenedor">
+
+                <div class="titulo-seccion">
+                    <div>
+                        <span class="etiqueta">PRODUCTOS BANCARIOS</span>
+                        <h1>Mis cuentas</h1>
+                        <p>Consulta los saldos y productos asociados a tu usuario.</p>
+                    </div>
+
+                    <button type="button"
+                            class="boton boton-secundario"
+                            data-navegar="panel">
+                        Volver al panel
+                    </button>
+                </div>
+
+                <div id="lista-cuentas" class="productos-grid">
+                    <p class="estado-vacio">
+                        Tus cuentas aparecerán aquí cuando se carguen los productos.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 6. CONSIGNACIONES -->
+        <section data-vista="consignar" class="vista" hidden>
+            <div class="contenedor contenedor-formulario">
+
+                <div class="encabezado-formulario">
+                    <span class="etiqueta">INGRESO DE DINERO</span>
+                    <h1>Consignar dinero</h1>
+                    <p>Selecciona una cuenta e indica el monto.</p>
+                </div>
+
+                <form id="form-consignar" class="formulario">
+
+                    <div class="campo">
+                        <label for="consignar-cuenta">Cuenta de destino</label>
+                        <select id="consignar-cuenta"
+                                name="cuentaId"
+                                required>
+                            <option value="">Selecciona una cuenta</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="consignar-monto">Monto en pesos</label>
+                        <input type="number"
+                               id="consignar-monto"
+                               name="monto"
+                               min="1"
+                               step="1"
+                               required
+                               placeholder="Ej. 100000">
+                    </div>
+
+                    <button type="submit"
+                            class="boton boton-primario boton-completo">
+                        Confirmar consignación
+                    </button>
+
+                    <button type="button"
+                            class="boton boton-secundario boton-completo"
+                            data-navegar="panel">
+                        Cancelar
+                    </button>
+
+                </form>
+            </div>
+        </section>
+
+
+        <!-- 7. RETIROS -->
+        <section data-vista="retirar" class="vista" hidden>
+            <div class="contenedor contenedor-formulario">
+
+                <div class="encabezado-formulario">
+                    <span class="etiqueta">DISPOSICIÓN DE DINERO</span>
+                    <h1>Retirar dinero</h1>
+                    <p>El retiro estará sujeto a las reglas de tu cuenta.</p>
+                </div>
+
+                <form id="form-retirar" class="formulario">
+
+                    <div class="campo">
+                        <label for="retirar-cuenta">Cuenta de origen</label>
+                        <select id="retirar-cuenta"
+                                name="cuentaId"
+                                required>
+                            <option value="">Selecciona una cuenta</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="retirar-monto">Monto en pesos</label>
+                        <input type="number"
+                               id="retirar-monto"
+                               name="monto"
+                               min="1"
+                               step="1"
+                               required
+                               placeholder="Ej. 50000">
+                    </div>
+
+                    <button type="submit"
+                            class="boton boton-primario boton-completo">
+                        Confirmar retiro
+                    </button>
+
+                    <button type="button"
+                            class="boton boton-secundario boton-completo"
+                            data-navegar="panel">
+                        Cancelar
+                    </button>
+
+                </form>
+            </div>
+        </section>
+
+
+        <!-- 8. TRANSFERENCIAS -->
+        <section data-vista="transferir" class="vista" hidden>
+            <div class="contenedor contenedor-formulario">
+
+                <div class="encabezado-formulario">
+                    <span class="etiqueta">ENVÍO DE DINERO</span>
+                    <h1>Transferir dinero</h1>
+                    <p>Selecciona el producto de origen y el de destino.</p>
+                </div>
+
+                <form id="form-transferir" class="formulario">
+
+                    <div class="campo">
+                        <label for="transferir-origen">Cuenta de origen</label>
+                        <select id="transferir-origen"
+                                name="origenId"
+                                required>
+                            <option value="">Selecciona el origen</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="transferir-destino">
+                            Cuenta de destino
+                        </label>
+                        <select id="transferir-destino"
+                                name="destinoId"
+                                required>
+                            <option value="">Selecciona el destino</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="transferir-monto">Monto en pesos</label>
+                        <input type="number"
+                               id="transferir-monto"
+                               name="monto"
+                               min="1"
+                               step="1"
+                               required
+                               placeholder="Ej. 80000">
+                    </div>
+
+                    <button type="submit"
+                            class="boton boton-primario boton-completo">
+                        Confirmar transferencia
+                    </button>
+
+                    <button type="button"
+                            class="boton boton-secundario boton-completo"
+                            data-navegar="panel">
+                        Cancelar
+                    </button>
+
+                </form>
+            </div>
+        </section>
+
+
+        <!-- 9. HISTORIAL DE MOVIMIENTOS -->
+        <section data-vista="movimientos" class="vista" hidden>
+            <div class="contenedor">
+
+                <div class="titulo-seccion">
+                    <div>
+                        <span class="etiqueta">HISTORIAL</span>
+                        <h1>Mis movimientos</h1>
+                        <p>Consulta las operaciones registradas.</p>
+                    </div>
+
+                    <button type="button"
+                            class="boton boton-secundario"
+                            data-navegar="panel">
+                        Volver al panel
+                    </button>
+                </div>
+
+                <div class="tabla-contenedor">
+                    <table class="tabla">
+                        <thead>
+                            <tr>
+                                <th>Fecha y hora</th>
+                                <th>Operación</th>
+                                <th>Valor</th>
+                                <th>Origen</th>
+                                <th>Destino</th>
+                                <th>Saldo resultante</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="tabla-movimientos">
+                            <tr>
+                                <td colspan="6" class="estado-vacio">
+                                    No hay movimientos registrados.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 10. TARJETA DE CRÉDITO -->
+        <section data-vista="tarjeta" class="vista" hidden>
+            <div class="contenedor">
+
+                <div class="titulo-seccion">
+                    <div>
+                        <span class="etiqueta">PRODUCTO DE CRÉDITO</span>
+                        <h1>Tarjeta de crédito</h1>
+                        <p>Registra compras y consulta las cuotas estimadas.</p>
+                    </div>
+
+                    <button type="button"
+                            class="boton boton-secundario"
+                            data-navegar="panel">
+                        Volver al panel
+                    </button>
+                </div>
+
+                <div class="resumen-grid">
+                    <article class="resumen-card">
+                        <p>Cupo total</p>
+                        <h2 id="tarjeta-cupo-total">$ 0</h2>
+                    </article>
+
+                    <article class="resumen-card">
+                        <p>Cupo disponible</p>
+                        <h2 id="tarjeta-cupo-disponible">$ 0</h2>
+                    </article>
+
+                    <article class="resumen-card">
+                        <p>Deuda actual</p>
+                        <h2 id="tarjeta-deuda">$ 0</h2>
+                    </article>
+                </div>
+
+                <div class="contenedor-formulario formulario-panel">
+                    <h2>Registrar una compra</h2>
+
+                    <form id="form-compra-tarjeta" class="formulario">
+
+                        <div class="campo">
+                            <label for="compra-tarjeta">Tarjeta</label>
+                            <select id="compra-tarjeta"
+                                    name="tarjetaId"
+                                    required>
+                                <option value="">Selecciona una tarjeta</option>
+                            </select>
+                        </div>
+
+                        <div class="campo">
+                            <label for="compra-descripcion">
+                                Descripción de la compra
+                            </label>
+                            <input type="text"
+                                   id="compra-descripcion"
+                                   name="descripcion"
+                                   required
+                                   placeholder="Ej. Compra de computador">
+                        </div>
+
+                        <div class="campo">
+                            <label for="compra-monto">Valor de la compra</label>
+                            <input type="number"
+                                   id="compra-monto"
+                                   name="monto"
+                                   min="1"
+                                   step="1"
+                                   required
+                                   placeholder="Ej. 450000">
+                        </div>
+
+                        <div class="campo">
+                            <label for="compra-cuotas">Número de cuotas</label>
+                            <input type="number"
+                                   id="compra-cuotas"
+                                   name="cuotas"
+                                   min="1"
+                                   step="1"
+                                   required
+                                   value="3">
+                        </div>
+
+                        <div id="resultado-cuota"
+                             class="resultado-cuota"
+                             aria-live="polite">
+                            Ingresa los datos para calcular la cuota.
+                        </div>
+
+                        <button type="submit"
+                                class="boton boton-primario boton-completo">
+                            Registrar compra
+                        </button>
+
+                    </form>
+                </div>
+
+                <div class="seccion-reciente">
+                    <h2>Compras registradas</h2>
+                    <div id="lista-compras">
+                        <p class="estado-vacio">
+                            Todavía no hay compras registradas.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 11. PERFIL -->
+        <section data-vista="perfil" class="vista" hidden>
+            <div class="contenedor contenedor-formulario">
+
+                <div class="encabezado-formulario">
+                    <span class="etiqueta">DATOS PERSONALES</span>
+                    <h1>Mi perfil</h1>
+                    <p>Actualiza tus datos y cambia tu contraseña.</p>
+                </div>
+
+                <form id="form-perfil" class="formulario">
+
+                    <div class="campo">
+                        <label for="perfil-identificacion">
+                            Identificación
+                        </label>
+                        <input type="text"
+                               id="perfil-identificacion"
+                               name="identificacion"
+                               readonly>
+                    </div>
+
+                    <div class="campo">
+                        <label for="perfil-usuario">Usuario</label>
+                        <input type="text"
+                               id="perfil-usuario"
+                               name="usuario"
+                               readonly>
+                    </div>
+
+                    <div class="campo">
+                        <label for="perfil-nombre">Nombre completo</label>
+                        <input type="text"
+                               id="perfil-nombre"
+                               name="nombre"
+                               required
+                               minlength="3">
+                    </div>
+
+                    <div class="campo">
+                        <label for="perfil-celular">Celular</label>
+                        <input type="tel"
+                               id="perfil-celular"
+                               name="celular"
+                               required
+                               minlength="7">
+                    </div>
+
+                    <button type="submit"
+                            class="boton boton-primario boton-completo">
+                        Guardar cambios
+                    </button>
+
+                </form>
+
+                <hr class="separador">
+
+                <h2>Cambiar contraseña</h2>
+
+                <form id="form-cambiar-password" class="formulario">
+
+                    <div class="campo">
+                        <label for="password-usuario">Usuario</label>
+                        <input type="text"
+                               id="password-usuario"
+                               name="usuario"
+                               autocomplete="username"
+                               required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="password-actual">Contraseña actual</label>
+                        <input type="password"
+                               id="password-actual"
+                               name="passwordActual"
+                               autocomplete="current-password"
+                               required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="password-nueva">Nueva contraseña</label>
+                        <input type="password"
+                               id="password-nueva"
+                               name="passwordNueva"
+                               autocomplete="new-password"
+                               minlength="6"
+                               required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="password-confirmacion">
+                            Confirmar nueva contraseña
+                        </label>
+                        <input type="password"
+                               id="password-confirmacion"
+                               name="confirmarPassword"
+                               autocomplete="new-password"
+                               minlength="6"
+                               required>
+                    </div>
+
+                    <button type="submit"
+                            class="boton boton-primario boton-completo">
+                        Cambiar contraseña
+                    </button>
+
+                </form>
+
+            </div>
+        </section>
+
+
+        <!-- 12. ADMINISTRACIÓN DE USUARIOS -->
+        <section data-vista="usuarios" class="vista" hidden>
+            <div class="contenedor">
+
+                <div class="titulo-seccion">
+                    <div>
+                        <span class="etiqueta">ADMINISTRACIÓN</span>
+                        <h1>Gestión de usuarios</h1>
+                        <p>Administra los registros de clientes de demostración.</p>
+                    </div>
+
+                    <button type="button"
+                            class="boton boton-secundario"
+                            data-navegar="panel">
+                        Volver al panel
+                    </button>
+                </div>
+
+                <div class="contenedor-formulario formulario-panel">
+                    <h2>Crear usuario</h2>
+
+                    <form id="form-admin-usuario" class="formulario">
+
+                        <div class="campo">
+                            <label for="admin-identificacion">
+                                Identificación
+                            </label>
+                            <input type="text"
+                                   id="admin-identificacion"
+                                   name="identificacion"
+                                   required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="admin-nombre">Nombre completo</label>
+                            <input type="text"
+                                   id="admin-nombre"
+                                   name="nombre"
+                                   required
+                                   minlength="3">
+                        </div>
+
+                        <div class="campo">
+                            <label for="admin-celular">Celular</label>
+                            <input type="tel"
+                                   id="admin-celular"
+                                   name="celular"
+                                   required
+                                   minlength="7">
+                        </div>
+
+                        <div class="campo">
+                            <label for="admin-usuario">Nombre de usuario</label>
+                            <input type="text"
+                                   id="admin-usuario"
+                                   name="usuario"
+                                   required
+                                   minlength="3">
+                        </div>
+
+                        <div class="campo">
+                            <label for="admin-password">Contraseña inicial</label>
+                            <input type="password"
+                                   id="admin-password"
+                                   name="password"
+                                   required
+                                   minlength="6"
+                                   autocomplete="new-password">
+                        </div>
+
+                        <button type="submit"
+                                class="boton boton-primario boton-completo">
+                            Registrar usuario
+                        </button>
+
+                    </form>
+                </div>
+
+                <h2 class="subtitulo-seccion">Usuarios registrados</h2>
+
+                <div class="tabla-contenedor">
+                    <table class="tabla">
+                        <thead>
+                            <tr>
+                                <th>Identificación</th>
+                                <th>Nombre</th>
+                                <th>Usuario</th>
+                                <th>Celular</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="tabla-usuarios">
+                            <tr>
+                                <td colspan="6" class="estado-vacio">
+                                    No hay usuarios cargados.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="footer">
+        <div class="contenedor footer-contenido">
+
+            <div>
+                <a href="#inicio" class="logo logo-footer"
+                   data-navegar="inicio">
+                    <span class="logo-icono" aria-hidden="true">$</span>
+                    <span>Mi Plata</span>
+                </a>
+
+                <p>
+                    Una experiencia de banca digital para aprender
+                    a gestionar productos y operaciones financieras.
+                </p>
+            </div>
+
+            <div class="footer-enlaces">
+                <h2>Explora</h2>
+                <button type="button" data-navegar="inicio">Inicio</button>
+                <button type="button" data-navegar="login">Ingresar</button>
+                <button type="button" data-navegar="registro">Registrarse</button>
+            </div>
+
+            <div class="footer-enlaces">
+                <h2>Información</h2>
+                <p>Proyecto académico</p>
+                <p>HTML, CSS y JavaScript</p>
+                <p>Simulación bancaria</p>
+            </div>
+
+        </div>
+
+        <div class="contenedor footer-final">
+            <p>
+                © <span id="anio-actual">2026</span> Mi Plata.
+                Proyecto académico.
+            </p>
+            <p>No es una plataforma bancaria real.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
